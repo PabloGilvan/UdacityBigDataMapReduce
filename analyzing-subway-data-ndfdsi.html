@@ -13089,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13322,31 +13322,6 @@ EXITS    = A contagem cumulativa de saídas associadas à catraca desde o últim
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Lendo arquivo de http://web.mta.info/developers/data/nyct/turnstile/turnstile_170624.txt. 
-Salvando arquivo como turnstile_170624.txt
-Lendo arquivo de http://web.mta.info/developers/data/nyct/turnstile/turnstile_170617.txt. 
-Salvando arquivo como turnstile_170617.txt
-Lendo arquivo de http://web.mta.info/developers/data/nyct/turnstile/turnstile_170610.txt. 
-Salvando arquivo como turnstile_170610.txt
-Lendo arquivo de http://web.mta.info/developers/data/nyct/turnstile/turnstile_170603.txt. 
-Salvando arquivo como turnstile_170603.txt
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13523,8 +13498,6 @@ linha 5...</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th></th>
-      <th></th>
       <th>C/A</th>
       <th>UNIT</th>
       <th>SCP</th>
@@ -13536,63 +13509,6 @@ linha 5...</p>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th rowspan="5" valign="top">A002</th>
-      <th rowspan="5" valign="top">R051</th>
-      <th>02-00-00</th>
-      <td>59 ST</td>
-      <td>NQR456W</td>
-      <td>BMT</td>
-      <td>06/10/2017</td>
-      <td>00:00:00</td>
-      <td>REGULAR</td>
-      <td>6215258</td>
-      <td>2104297</td>
-    </tr>
-    <tr>
-      <th>02-00-00</th>
-      <td>59 ST</td>
-      <td>NQR456W</td>
-      <td>BMT</td>
-      <td>06/10/2017</td>
-      <td>04:00:00</td>
-      <td>REGULAR</td>
-      <td>6215284</td>
-      <td>2104303</td>
-    </tr>
-    <tr>
-      <th>02-00-00</th>
-      <td>59 ST</td>
-      <td>NQR456W</td>
-      <td>BMT</td>
-      <td>06/10/2017</td>
-      <td>08:00:00</td>
-      <td>REGULAR</td>
-      <td>6215318</td>
-      <td>2104337</td>
-    </tr>
-    <tr>
-      <th>02-00-00</th>
-      <td>59 ST</td>
-      <td>NQR456W</td>
-      <td>BMT</td>
-      <td>06/10/2017</td>
-      <td>12:00:00</td>
-      <td>REGULAR</td>
-      <td>6215475</td>
-      <td>2104417</td>
-    </tr>
-    <tr>
-      <th>02-00-00</th>
-      <td>59 ST</td>
-      <td>NQR456W</td>
-      <td>BMT</td>
-      <td>06/10/2017</td>
-      <td>16:00:00</td>
-      <td>REGULAR</td>
-      <td>6215841</td>
-      <td>2104465</td>
-    </tr>
   </tbody>
 </table>
 </div>
@@ -13651,7 +13567,7 @@ linha 5...</p>
     <span class="n">aux</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
     <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">-</span> <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span>
-    <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">aux</span>
 </pre></div>
 
@@ -14009,7 +13925,8 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">num_rainy_days</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">rain</span><span class="p">,</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">))</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rain&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;DATEn&#39;</span><span class="p">]))</span>
 
 <span class="n">num_rainy_days</span><span class="p">(</span><span class="n">weather</span><span class="p">)</span>
 </pre></div>
@@ -14030,7 +13947,7 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>44104</pre>
+<pre>10</pre>
 </div>
 
 </div>
@@ -14053,8 +13970,9 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 <div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">max_temp_aggregate_by_fog</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">fog</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">maxtempi</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#Muito boa a dica, não tinha me ligado em fazer parametrizado.</span>
+<span class="k">def</span> <span class="nf">max_temp_aggregate_by_fog</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">fog</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fog&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">fog</span><span class="p">][</span><span class="s1">&#39;maxtempi&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14079,7 +13997,7 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
     
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;WEEKDAY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DATEn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span>
-    <span class="n">mean_temp_weekends</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;WEEKDAY&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">meantempi</span>
+    <span class="n">mean_temp_weekends</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;WEEKDAY&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">meantempi</span>
     
     <span class="k">return</span> <span class="n">mean_temp_weekends</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
@@ -14105,12 +14023,33 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">avg_min_temperature</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
     
-    <span class="n">avg_min_temp_rainy</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mintempi&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">55</span><span class="p">]</span><span class="o">.</span><span class="n">mintempi</span>
+    <span class="n">avg_min_temp_rainy</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mintempi&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">55</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rain&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))]</span><span class="o">.</span><span class="n">mintempi</span>
     
     <span class="k">return</span> <span class="n">avg_min_temp_rainy</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">avg_min_temperature</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>55.39213818061031</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -14131,7 +14070,7 @@ Abaixo está um exemplo sobre como traçar histogramas com pandas e matplotlib:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
@@ -14178,10 +14117,10 @@ Abaixo está um exemplo sobre como traçar histogramas com pandas e matplotlib:
 
 
 
-<div id="f1525c89-dc08-481d-b47c-9f6126585df9"></div>
+<div id="a1a1437a-1627-46af-ab46-d3a54ff40554"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#f1525c89-dc08-481d-b47c-9f6126585df9');
+var element = $('#a1a1437a-1627-46af-ab46-d3a54ff40554');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
@@ -15083,7 +15022,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
@@ -15124,7 +15063,7 @@ if (IPython.notebook.kernel != null) {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">reducer</span><span class="p">():</span>
