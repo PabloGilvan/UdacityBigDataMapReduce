@@ -13089,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13555,7 +13555,7 @@ linha 5...</p>
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_rows_difference</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">new_column</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">get_rows_difference</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">column</span><span class="p">,</span> <span class="n">new_column</span><span class="p">,</span> <span class="n">fill</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Função utilizada para pegar a diferença entre a linha posterior e linha anterior</span>
 <span class="sd">        de um dado Dataframe.</span>
@@ -13563,11 +13563,12 @@ linha 5...</p>
 <span class="sd">        df: o Dataframe com os dados a serem analisados.</span>
 <span class="sd">        column: coluna que será calculada.</span>
 <span class="sd">        new_column: o nome da nova coluna, gerada a partir do cálculo da coluna informada.</span>
+<span class="sd">        fill: valor para substituir registros com NaN</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">aux</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">()</span>
     <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">aux</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">-</span> <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span>
-    <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">aux</span><span class="p">[</span><span class="n">new_column</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">fill</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">aux</span>
 </pre></div>
 
@@ -13603,7 +13604,7 @@ Para isso crie uma coluna chamada de EXITSn_hourly e insira a diferença entre a
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">turnstile_data</span> <span class="o">=</span> <span class="n">get_rows_difference</span><span class="p">(</span><span class="n">turnstile_data</span><span class="p">,</span> <span class="s1">&#39;EXITSn&#39;</span><span class="p">,</span> <span class="s1">&#39;EXITSn_hourly&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">turnstile_data</span> <span class="o">=</span> <span class="n">get_rows_difference</span><span class="p">(</span><span class="n">turnstile_data</span><span class="p">,</span> <span class="s1">&#39;EXITSn&#39;</span><span class="p">,</span> <span class="s1">&#39;EXITSn_hourly&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13997,7 +13998,7 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
     
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;WEEKDAY&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;DATEn&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">date</span><span class="p">()</span><span class="o">.</span><span class="n">weekday</span><span class="p">())</span>
-    <span class="n">mean_temp_weekends</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;WEEKDAY&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">meantempi</span>
+    <span class="n">mean_temp_weekends</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;WEEKDAY&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">meantempi</span>
     
     <span class="k">return</span> <span class="n">mean_temp_weekends</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 </pre></div>
@@ -14117,10 +14118,10 @@ Abaixo está um exemplo sobre como traçar histogramas com pandas e matplotlib:
 
 
 
-<div id="a1a1437a-1627-46af-ab46-d3a54ff40554"></div>
+<div id="f3702e18-60b2-4461-a5f1-62a98619d79b"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#a1a1437a-1627-46af-ab46-d3a54ff40554');
+var element = $('#f3702e18-60b2-4461-a5f1-62a98619d79b');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
