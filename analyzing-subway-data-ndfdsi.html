@@ -13089,7 +13089,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13322,6 +13322,31 @@ EXITS    = A contagem cumulativa de saídas associadas à catraca desde o últim
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Lendo arquivo de http://web.mta.info/developers/data/nyct/turnstile/turnstile_170624.txt. 
+Salvando arquivo como turnstile_170624.txt
+Lendo arquivo de http://web.mta.info/developers/data/nyct/turnstile/turnstile_170617.txt. 
+Salvando arquivo como turnstile_170617.txt
+Lendo arquivo de http://web.mta.info/developers/data/nyct/turnstile/turnstile_170610.txt. 
+Salvando arquivo como turnstile_170610.txt
+Lendo arquivo de http://web.mta.info/developers/data/nyct/turnstile/turnstile_170603.txt. 
+Salvando arquivo como turnstile_170603.txt
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
@@ -13498,6 +13523,8 @@ linha 5...</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th></th>
+      <th></th>
       <th>C/A</th>
       <th>UNIT</th>
       <th>SCP</th>
@@ -13509,6 +13536,63 @@ linha 5...</p>
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <th rowspan="5" valign="top">A002</th>
+      <th rowspan="5" valign="top">R051</th>
+      <th>02-00-00</th>
+      <td>59 ST</td>
+      <td>NQR456W</td>
+      <td>BMT</td>
+      <td>06/17/2017</td>
+      <td>00:00:00</td>
+      <td>REGULAR</td>
+      <td>6224816</td>
+      <td>2107317</td>
+    </tr>
+    <tr>
+      <th>02-00-00</th>
+      <td>59 ST</td>
+      <td>NQR456W</td>
+      <td>BMT</td>
+      <td>06/17/2017</td>
+      <td>04:00:00</td>
+      <td>REGULAR</td>
+      <td>6224850</td>
+      <td>2107322</td>
+    </tr>
+    <tr>
+      <th>02-00-00</th>
+      <td>59 ST</td>
+      <td>NQR456W</td>
+      <td>BMT</td>
+      <td>06/17/2017</td>
+      <td>08:00:00</td>
+      <td>REGULAR</td>
+      <td>6224885</td>
+      <td>2107352</td>
+    </tr>
+    <tr>
+      <th>02-00-00</th>
+      <td>59 ST</td>
+      <td>NQR456W</td>
+      <td>BMT</td>
+      <td>06/17/2017</td>
+      <td>12:00:00</td>
+      <td>REGULAR</td>
+      <td>6225005</td>
+      <td>2107452</td>
+    </tr>
+    <tr>
+      <th>02-00-00</th>
+      <td>59 ST</td>
+      <td>NQR456W</td>
+      <td>BMT</td>
+      <td>06/17/2017</td>
+      <td>16:00:00</td>
+      <td>REGULAR</td>
+      <td>6225248</td>
+      <td>2107513</td>
+    </tr>
   </tbody>
 </table>
 </div>
@@ -14024,7 +14108,7 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">avg_min_temperature</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
     
-    <span class="n">avg_min_temp_rainy</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="p">((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mintempi&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">55</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rain&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))]</span><span class="o">.</span><span class="n">mintempi</span>
+    <span class="n">avg_min_temp_rainy</span> <span class="o">=</span> <span class="n">df</span><span class="p">[((</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;mintempi&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">55</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;rain&#39;</span><span class="p">],</span> <span class="n">downcast</span><span class="o">=</span><span class="s1">&#39;integer&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">))]</span><span class="o">.</span><span class="n">mintempi</span>
     
     <span class="k">return</span> <span class="n">avg_min_temp_rainy</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">avg_min_temperature</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
@@ -14046,7 +14130,7 @@ Nós complementamos para você este arquivo com os dados de clima de Nova Iorque
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>55.39213818061031</pre>
+<pre>61.238860398860396</pre>
 </div>
 
 </div>
@@ -14118,10 +14202,10 @@ Abaixo está um exemplo sobre como traçar histogramas com pandas e matplotlib:
 
 
 
-<div id="f3702e18-60b2-4461-a5f1-62a98619d79b"></div>
+<div id="6a8262c2-d256-4a56-963e-e01a2b23d57c"></div>
 <div class="output_subarea output_javascript ">
 <script type="text/javascript">
-var element = $('#f3702e18-60b2-4461-a5f1-62a98619d79b');
+var element = $('#6a8262c2-d256-4a56-963e-e01a2b23d57c');
 /* Put everything inside the global mpl namespace */
 window.mpl = {};
 
